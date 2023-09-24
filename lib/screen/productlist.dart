@@ -7,6 +7,7 @@ import 'package:sqlite_work_databse_dk/screen/viewcardpage.dart';
 
 import '../controller/productadd_controller.dart';
 import '../modal/entity/product.dart';
+import 'bookingscreen.dart';
 import 'editproduct.dart';
 
 class ProductList extends GetView {
@@ -79,7 +80,10 @@ class ProductList extends GetView {
                     width: 20,
                   ),
                 ],
-              )
+              ),
+              ElevatedButton(onPressed: (){
+                Get.to(BookingScreen());
+              }, child: Text("booking")),
             ],
           ),
         ),

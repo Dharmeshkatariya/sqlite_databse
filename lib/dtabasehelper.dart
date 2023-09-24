@@ -47,6 +47,17 @@ class DatabaseHelper {
             discount REAL
           )
         ''');
+
+        await db.execute('''
+      CREATE TABLE  Bookings(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        customer_name TEXT,
+        booking_date TEXT,
+        room_number INTEGER,
+        check_in TEXT,
+        check_out TEXT
+      )
+    ''');
         // Add more tables if needed
       },
     );

@@ -1,15 +1,24 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sqlite_work_databse_dk/modal/dao/bookingdao.dart';
 import 'package:sqlite_work_databse_dk/modal/dao/productdao.dart';
-
+import 'package:sqlite_work_databse_dk/modal/entity/booking.dart';
 import 'modal/dao/carddao.dart';
 import 'dtabasehelper.dart';
 import 'modal/entity/card.dart';
 import 'modal/entity/product.dart';
 
+
+
+
+
+
+
+
 class Common {
+
+
   static String productDetail = '/product_detail';
 
   int getRandomId() {
@@ -44,6 +53,28 @@ class Common {
       print(res);
     } catch (e) {
       print(e);
+    }
+  }
+  Future<void>  insertBooking(Booking booking)async{
+    try {
+      final bookingDao = BookingDao();
+
+      var res = await bookingDao.insertBooking(booking);
+      print(res);
+      getAllbokking();
+    } catch (e) {
+      print(e);
+    }
+  }
+  Future<List<Booking>> getAllbokking()async{
+    try {
+      final bookingDao = BookingDao();
+      List<Booking> bookings = await bookingDao.getAllBookings();
+      print(bookings);
+      return bookings;
+    } catch (e) {
+      print(e);
+      return [];
     }
   }
 
