@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../modal/dao/carddao.dart';
 import '../modal/entity/card.dart';
 
-class DataListView extends StatefulWidget {
+class PaginationScreeen extends StatefulWidget {
   @override
-  _DataListViewState createState() => _DataListViewState();
+  _PaginationScreeenState createState() => _PaginationScreeenState();
 }
 
-class _DataListViewState extends State<DataListView> {
+class _PaginationScreeenState extends State<PaginationScreeen> {
   List<CardItem> _data = []; // Store fetched data
   int _pageSize = 10; // Number of items per page
   int _currentPage = 1; // Current page

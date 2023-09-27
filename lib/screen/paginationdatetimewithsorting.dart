@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../modal/dao/carddao.dart';
 import '../modal/entity/card.dart';
 
-class DataListView extends StatefulWidget {
+class PaginationScreeenSorting extends StatefulWidget {
   @override
-  _DataListViewState createState() => _DataListViewState();
+  _PaginationScreeenSortingState createState() => _PaginationScreeenSortingState();
 }
 
-class _DataListViewState extends State<DataListView> {
+class _PaginationScreeenSortingState extends State<PaginationScreeenSorting> {
   List<CardItem> _data = []; // Store fetched data
   int _pageSize = 10; // Number of items per page
   int _currentPage = 1; // Current page
@@ -63,8 +63,8 @@ class _DataListViewState extends State<DataListView> {
   }
 
   Future<void> _fetchData() async {
-    final now = DateTime.now();
-    final sevenDaysAgo = now.subtract(Duration(days: 7));
+    final now = DateTime(2023, 12, 31);
+    final sevenDaysAgo =  DateTime(2023, 1, 1);
 
     final data = await CardItemDao().getPaginatedAndSortedDataWithDateFilter(
       page: _currentPage,

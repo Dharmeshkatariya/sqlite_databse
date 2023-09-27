@@ -26,15 +26,16 @@ class ProductDetailsController extends GetxController {
   }
 
   addCard() async {
+    DateTime createdAt = DateTime.now();
     CardItem card = CardItem(
-      Common().getRandomId(),
-      product!.name,
-      product!.desc,
-      product!.price,
-      productQty.value,
-      product!.discount,
-    );
+        id: Common().getRandomId(),
+        name: product!.name,
+        desc: product!.desc,
+        price: product!.price,
+        qty: productQty.value,
+        createdAt: createdAt,
+        discount: product!.discount);
     await Common().insertCardItem(card);
-    Get.to(() =>  ViewCardPage());
+    Get.to(() => ViewCardPage());
   }
 }

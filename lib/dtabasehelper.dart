@@ -34,9 +34,12 @@ class DatabaseHelper {
             desc TEXT,
             price REAL,
             qty INTEGER,
+            createdAt TEXT NOT NULL,
+            
             discount REAL
           )
         ''');
+
         await db.execute('''
           CREATE TABLE Product (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
